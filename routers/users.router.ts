@@ -1,22 +1,12 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
+import { user_controllers } from '../controller/user';
+
 const userrouters = express.Router()
-userrouters.post('/login', (req: Request, res: Response) => {
-    res.send({ message: req?.method }).status(201)
-})
-userrouters.get('/login', (req: Request, res: Response) => {
-    res.send({ message: req?.method }).status(201)
-})
-userrouters.post('/socialLogin', (req: Request, res: Response) => {
-    res.send({ message: req?.method }).status(201)
-})
-userrouters.post('/updateProfile', (req: Request, res: Response) => {
-    res.send({ message: req?.method }).status(201)
-})
-userrouters.post('/updatePhoto', (req: Request, res: Response) => {
-    res.send({ message: req?.method }).status(201)
-})
-userrouters.post('/signup', (req: Request, res: Response) => {
-    res.send({ message: req?.method }).status(201)
-})
+userrouters.post('/login', user_controllers?.login)
+userrouters.get('/login', user_controllers?.login)
+userrouters.post('/socialLogin', user_controllers?.socialLogin)
+userrouters.post('/updateProfile', user_controllers?.updateProfile)
+userrouters.post('/updatePhoto', user_controllers?.updatePhoto)
+userrouters.post('/signup', user_controllers?.register)
 
 export default userrouters
